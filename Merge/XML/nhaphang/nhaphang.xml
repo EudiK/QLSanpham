@@ -1,0 +1,34 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<kho_hang>
+  <SP3>
+    <maSP3>001</maSP3>
+    <tenSP3>Laptop</tenSP3>
+    <SL3>160</SL3>
+    <DG3>1000</DG3>
+  </SP3>
+  <SP3>
+    <maSP3>002</maSP3>
+    <tenSP3>TV</tenSP3>
+    <SL3>20</SL3>
+    <DG3>500</DG3>
+  </SP3>
+  <SP3>
+    <maSP3>003</maSP3>
+    <tenSP3>Máy tính bảng</tenSP3>
+    <SL3>15</SL3>
+    <DG3>300</DG3>
+  </SP3>
+  <SP3>
+    <maSP3>004</maSP3>
+    <tenSP3>Bàn phím</tenSP3>
+    <SL3>30</SL3>
+    <DG3>50</DG3>
+  </SP3>
+  <SP3>
+    <maSP3>005</maSP3>
+    <tenSP3>Quang</tenSP3>
+    <SL3>10</SL3>
+    <DG3>100</DG3>
+  </SP3>
+  
+</kho_hang>

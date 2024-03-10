@@ -1,0 +1,92 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE DS_hoadon[
+	<!ELEMENT DS_hoadon (hoadon*)>
+	<!ELEMENT hoadon (khachhang, sanpham*, ngaytao, tongtien)>
+	<!ELEMENT ngaytao (#PCDATA)>
+	<!ELEMENT tongtien (#PCDATA)>
+	
+	
+	<!ELEMENT khachhang (#PCDATA)>
+	
+	
+
+	<!ELEMENT sanpham (tensp, soluong, dongia)>
+	<!ELEMENT tensp (#PCDATA)>
+	<!ELEMENT soluong (#PCDATA)>
+	<!ELEMENT dongia (#PCDATA)>
+
+
+	<!ATTLIST khachhang makh ID #REQUIRED>
+	<!ATTLIST sanpham masp ID #REQUIRED>
+	<!ATTLIST hoadon mahd ID #REQUIRED>
+]>
+<DS_hoadon>
+  <hoadon mahd="hd5">
+    <khachhang makh="kh02" />
+    <sanpham masp="sp12">
+      <tensp>t</tensp>
+      <soluong>1</soluong>
+      <dongia>1</dongia>
+    </sanpham>
+    <sanpham masp="sp14">
+      <tensp>t3</tensp>
+      <soluong>2</soluong>
+      <dongia>7</dongia>
+    </sanpham>
+    <ngaytao>3/6/2024 10:47:45 PM</ngaytao>
+    <tongtien>11</tongtien>
+  </hoadon>
+  <hoadon mahd="hd2">
+    <khachhang makh="kh04" />
+    <sanpham masp="sp45">
+      <tensp>ad</tensp>
+      <soluong>12</soluong>
+      <dongia>1</dongia>
+    </sanpham>
+    <sanpham masp="sp65">
+      <tensp>ad</tensp>
+      <soluong>7</soluong>
+      <dongia>9</dongia>
+    </sanpham>
+    <ngaytao>3/7/2024 12:03:12 AM</ngaytao>
+    <tongtien>29</tongtien>
+  </hoadon>
+  <hoadon mahd="hd5">
+    <khachhang makh="MK01" />
+    <sanpham masp="SP02">
+      <tensp>1</tensp>
+      <soluong>1</soluong>
+      <dongia>1</dongia>
+    </sanpham>
+    <ngaytao>10/3/2024 11:42:22 PM</ngaytao>
+    <tongtien>1</tongtien>
+  </hoadon>
+  <hoadon mahd="hd4">
+    <khachhang makh="none" />
+    <ngaytao>10/3/2024 11:52:46 PM</ngaytao>
+    <tongtien>
+    </tongtien>
+  </hoadon>
+  <hoadon mahd="hd5">
+    <khachhang makh="none" />
+    <sanpham masp="SP01">
+      <tensp>
+      </tensp>
+      <soluong>2</soluong>
+      <dongia>2400</dongia>
+    </sanpham>
+    <ngaytao>11/3/2024 12:34:44 AM</ngaytao>
+    <tongtien>4800</tongtien>
+  </hoadon>
+  <hoadon mahd="hd6">
+    <khachhang makh="none" />
+    <sanpham masp="SP01">
+      <tensp>
+      </tensp>
+      <soluong>22</soluong>
+      <dongia>2</dongia>
+    </sanpham>
+    <ngaytao>11/3/2024 12:58:11 AM</ngaytao>
+    <tongtien>44</tongtien>
+  </hoadon>
+</DS_hoadon>

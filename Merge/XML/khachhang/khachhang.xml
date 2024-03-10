@@ -1,0 +1,27 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+
+<!DOCTYPE QLKH[
+	<!ELEMENT QLKH (KhachHang*)>
+	<!ELEMENT KhachHang (tenKhach, SDT, diaChi)>
+	<!ELEMENT tenKhach (#PCDATA)>
+	<!ELEMENT SDT (#PCDATA)>
+	<!ELEMENT diaChi (#PCDATA)>
+	<!ATTLIST KhachHang MaK ID #REQUIRED>
+]>
+<QLKH>
+	<KhachHang MaK="MK01">
+		<tenKhach>Tran Tuan Anh</tenKhach>
+		<SDT>0123456789</SDT>
+		<diaChi>Bac Giang</diaChi>
+	</KhachHang>
+	<KhachHang MaK="MK02">
+		<tenKhach>Tran Tuan Anh</tenKhach>
+		<SDT>0123456789</SDT>
+		<diaChi>Luong Phong</diaChi>
+	</KhachHang>
+	<KhachHang MaK="MK03">
+		<tenKhach>Tran Binh An</tenKhach>
+		<SDT>0123456789</SDT>
+		<diaChi>Ha Noi</diaChi>
+	</KhachHang>
+</QLKH>

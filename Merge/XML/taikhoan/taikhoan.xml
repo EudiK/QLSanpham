@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+
+<QLTK>
+	<TaiKhoan>
+		<taikhoan>anhhhbg2002</taikhoan>
+		<matkhau>123456</matkhau>
+	</TaiKhoan>
+	<TaiKhoan>
+		<taikhoan>tuananh02</taikhoan>
+		<matkhau>123456</matkhau>
+	</TaiKhoan>
+	<TaiKhoan>
+		<taikhoan>tuananh03</taikhoan>
+		<matkhau>123456</matkhau>
+	</TaiKhoan>
+</QLTK>

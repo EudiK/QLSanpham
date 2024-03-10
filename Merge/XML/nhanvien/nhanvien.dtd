@@ -1,0 +1,14 @@
+﻿
+<!ELEMENT QLNV (Nhanvien*)>
+<!ELEMENT Nhanvien (Hoten, Diachi, Gioitinh, Namsinh, Sdt)>
+<!ELEMENT Hoten (#PCDATA)>
+<!ELEMENT Diachi (#PCDATA)>
+<!ELEMENT Gioitinh (#PCDATA)>
+<!ELEMENT Namsinh (#PCDATA)>
+<!ELEMENT Sdt (#PCDATA)>
+<!ATTLIST Nhanvien MaNV ID #REQUIRED>
+
+<!ELEMENT Users (User)>
+<!ELEMENT User (Username, Password)>
+<!ELEMENT Username (#PCDATA)>
+<!ELEMENT Password (#PCDATA)>

@@ -1,0 +1,20 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+
+<!--<!DOCTYPE QLNV SYSTEM "nhanvien.dtd"[]>-->
+
+<QLNV>
+	<Nhanvien MaNV="NV02">
+		<Hoten>huy2</Hoten>
+		<Diachi>tn</Diachi>
+		<Gioitinh>nam</Gioitinh>
+		<Namsinh>2002</Namsinh>
+		<Sdt>023244</Sdt>
+	</Nhanvien>
+	<Nhanvien MaNV="NV03">
+		<Hoten>HUy</Hoten>
+		<Diachi>tn</Diachi>
+		<Gioitinh>nam</Gioitinh>
+		<Namsinh>2002</Namsinh>
+		<Sdt>20405530</Sdt>
+	</Nhanvien>
+</QLNV>
