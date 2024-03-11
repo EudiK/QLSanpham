@@ -37,7 +37,7 @@ namespace Merge
         {
 
             // Đường dẫn đến tệp XML chứa thông tin tài khoản
-            string xmlFilePath = "C:\\Users\\FPT\\source\\repos\\XML_BTL\\XML_BTL\\XML\\TaiKhoan\\TaiKhoan.xml";
+            string xmlFilePath = "C:\\Users\\kindl\\source\\repos\\QLSanpham\\Merge\\XML\\nhanvien\\nhanvien.xml";
 
             // Tên người dùng và mật khẩu từ các trường nhập liệu trên giao diện
             string username = txtTaiKhoan.Text;
@@ -50,7 +50,7 @@ namespace Merge
                 xmlDoc.Load(xmlFilePath);
 
                 // Lấy danh sách các phần tử <TaiKhoan> từ tệp XML
-                XmlNodeList accountNodes = xmlDoc.SelectNodes("/QLTK/TaiKhoan");
+                XmlNodeList accountNodes = xmlDoc.SelectNodes("nhanvien");
 
                 // Kiểm tra thông tin tài khoản và mật khẩu
                 foreach (XmlNode node in accountNodes)
@@ -77,11 +77,6 @@ namespace Merge
             }
         }
 
-        private void button1_Click(object sender, EventArgs e)
-        {
-            this.Hide();
-            Form3 form3 = new Form3();
-            form3.Show();
-        }
+        
     }
 }

@@ -34,7 +34,6 @@
             this.txtMatKhau = new System.Windows.Forms.TextBox();
             this.btnTaiKhoan = new System.Windows.Forms.Button();
             this.lb_dangnhap1 = new System.Windows.Forms.Label();
-            this.button1 = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // lb_taikhoan
@@ -76,7 +75,7 @@
             // 
             // btnTaiKhoan
             // 
-            this.btnTaiKhoan.Location = new System.Drawing.Point(240, 266);
+            this.btnTaiKhoan.Location = new System.Drawing.Point(289, 266);
             this.btnTaiKhoan.Name = "btnTaiKhoan";
             this.btnTaiKhoan.Size = new System.Drawing.Size(118, 35);
             this.btnTaiKhoan.TabIndex = 5;
@@ -94,30 +93,19 @@
             this.lb_dangnhap1.TabIndex = 6;
             this.lb_dangnhap1.Text = "ĐĂNG NHẬP";
             // 
-            // button1
-            // 
-            this.button1.Location = new System.Drawing.Point(381, 266);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(122, 35);
-            this.button1.TabIndex = 7;
-            this.button1.Text = "ĐĂNG KÍ";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
-            // 
-            // Form2
+            // Form4
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.ClientSize = new System.Drawing.Size(691, 418);
-            this.Controls.Add(this.button1);
             this.Controls.Add(this.lb_dangnhap1);
             this.Controls.Add(this.btnTaiKhoan);
             this.Controls.Add(this.txtMatKhau);
             this.Controls.Add(this.txtTaiKhoan);
             this.Controls.Add(this.lb_matkhau);
             this.Controls.Add(this.lb_taikhoan);
-            this.Name = "Form2";
+            this.Name = "Form4";
             this.Text = "Form2";
             this.Load += new System.EventHandler(this.Form4_Load);
             this.ResumeLayout(false);
@@ -132,6 +120,5 @@
         private System.Windows.Forms.TextBox txtMatKhau;
         private System.Windows.Forms.Button btnTaiKhoan;
         private System.Windows.Forms.Label lb_dangnhap1;
-        private System.Windows.Forms.Button button1;
     }
 }

@@ -27,15 +27,15 @@ namespace Merge
         //huy
         String fileName = @"C:\Users\kindl\source\repos\QLSanpham\Merge\XML\nhanvien\nhanvien.xml";
         //tuananh
-        String khfileName = @"C:\Users\kindl\source\repos\QLSanpham\Merge\XML\nhanvien\khachhang.xml";
+        String khfileName = @"C:\Users\kindl\source\repos\QLSanpham\Merge\XML\khachhang\khachhang.xml";
         //quang
-        string qfileName = @"C:\Users\kindl\source\repos\QLSanpham\Merge\XML\nhanvien\nhaphang.xml";
+        string qfileName = @"C:\Users\kindl\source\repos\QLSanpham\Merge\XML\nhaphang\nhaphang.xml";
         //manh
         XmlDocument  kh_doc = new XmlDocument(), sp_doc = new XmlDocument();
         XmlElement  kh_root, sp_root;
         string
-            kh_fileName = @"C:\Users\kindl\source\repos\QLSanpham\Merge\XML\nhanvien\khachhang.xml"
-        , sp_fileName = @"C:\Users\kindl\source\repos\QLSanpham\Merge\XML\nhanvien\sanpham.xml";
+            kh_fileName = @"C:\Users\kindl\source\repos\QLSanpham\Merge\XML\khachhang\khachhang.xml"
+        , sp_fileName = @"C:\Users\kindl\source\repos\QLSanpham\Merge\XML\sanpham\sanpham.xml";
 
         private void hd_them_Click(object sender, EventArgs e)
         {
@@ -640,7 +640,7 @@ namespace Merge
             }
         }
 
-        //tuananh
+        //tuananh=======================================================================================
 
         private void dataGridViewKH_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
@@ -654,11 +654,12 @@ namespace Merge
 
         XmlDocument xmlDoc = new XmlDocument();
         XmlElement root;
-       
-        private void Form1_Load(object sender, EventArgs e)
+        private void tabPage4_Click(object sender, EventArgs e)
         {
             HienThi(dataGridViewKH);
         }
+
+        
         public void HienThi(DataGridView dataGridViewKH)
         {
             xmlDoc.Load(khfileName);//load tep xml
@@ -1098,6 +1099,8 @@ namespace Merge
 
         }
 
+        
+
 
 
 
@@ -1118,7 +1121,7 @@ namespace Merge
             for (int i = 0; i < n; i++)
             {
                 DateTime currentDate = DateTime.Parse(DSHoaDon[i].SelectSingleNode("ngaytao").InnerText);
-                int tongtien = int.Parse(DSHoaDon[i].SelectSingleNode("tongtien").InnerText);
+                int tongtien = int.Parse(DSHoaDon[i].SelectSingleNode("tongtien").InnerText.ToString());
                 if (DoanhThu[j].Item1 != currentDate.Date)
                 {
                     j++;
