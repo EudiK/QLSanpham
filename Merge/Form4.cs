@@ -32,12 +32,13 @@ namespace Merge
         {
 
         }
+        static String storePC = "C:\\Users\\Admin\\source\\repos\\merge\\Merge\\XML";
 
         private void btnTaiKhoan_Click(object sender, EventArgs e)
         {
 
             // Đường dẫn đến tệp XML chứa thông tin tài khoản
-            string xmlFilePath = "C:\\Users\\kindl\\source\\repos\\QLSanpham\\Merge\\XML\\nhanvien\\nhanvien.xml";
+            string xmlFilePath = storePC + "\\taikhoan\\taikhoan.xml";
 
             // Tên người dùng và mật khẩu từ các trường nhập liệu trên giao diện
             string username = txtTaiKhoan.Text;
@@ -50,7 +51,7 @@ namespace Merge
                 xmlDoc.Load(xmlFilePath);
 
                 // Lấy danh sách các phần tử <TaiKhoan> từ tệp XML
-                XmlNodeList accountNodes = xmlDoc.SelectNodes("nhanvien");
+                XmlNodeList accountNodes = xmlDoc.SelectNodes("/QLTK/TaiKhoan");
 
                 // Kiểm tra thông tin tài khoản và mật khẩu
                 foreach (XmlNode node in accountNodes)

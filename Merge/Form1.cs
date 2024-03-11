@@ -17,25 +17,26 @@ namespace Merge
         {
             InitializeComponent();
         }
-
+        // String storeLap = "C:\\Users\\kindl\\source\\repos\\QLSanpham\\Merge\\XML";
+        static String storePC = @"C:\Users\Admin\source\repos\merge\Merge\XML";
         XmlDocument hd_doc = new XmlDocument();
         XmlElement hd_root;
         //khanh
-        string hd_fileName = @"C:\Users\kindl\source\repos\QLSanpham\Merge\XML\hoadon\hoadon.xml";
+        string hd_fileName = storePC + @"\hoadon\hoadon.xml";
         //thai
-        string QLSPFileName = @"C:\Users\kindl\source\repos\QLSanpham\Merge\XML\sanpham\sanpham.xml";
+        string QLSPFileName = storePC + @"\sanpham\sanpham.xml";
         //huy
-        String fileName = @"C:\Users\kindl\source\repos\QLSanpham\Merge\XML\nhanvien\nhanvien.xml";
+        String fileName = storePC + @"\nhanvien\nhanvien.xml";
         //tuananh
-        String khfileName = @"C:\Users\kindl\source\repos\QLSanpham\Merge\XML\khachhang\khachhang.xml";
+        String khfileName = storePC + @"\khachhang\khachhang.xml";
         //quang
-        string qfileName = @"C:\Users\kindl\source\repos\QLSanpham\Merge\XML\nhaphang\nhaphang.xml";
+        string qfileName = storePC + @"\nhaphang\nhaphang.xml";
         //manh
         XmlDocument  kh_doc = new XmlDocument(), sp_doc = new XmlDocument();
         XmlElement  kh_root, sp_root;
         string
-            kh_fileName = @"C:\Users\kindl\source\repos\QLSanpham\Merge\XML\khachhang\khachhang.xml"
-        , sp_fileName = @"C:\Users\kindl\source\repos\QLSanpham\Merge\XML\sanpham\sanpham.xml";
+            kh_fileName = storePC + @"\khachhang\khachhang.xml"
+        , sp_fileName = storePC + @"\sanpham\sanpham.xml";
 
         private void hd_them_Click(object sender, EventArgs e)
         {
@@ -53,10 +54,18 @@ namespace Merge
 
 
                                 hd_grid.Rows[row].Cells[0].Value = txt_hd_masp.Text;
-                                hd_grid.Rows[row].Cells[1].Value = txt_hd_tensp.Text;
+                                hd_grid.Rows[row].Cells[1].Value = node.SelectSingleNode("TenHang").InnerText;
                                 hd_grid.Rows[row].Cells[2].Value = txt_hd_sl.Text;
-                                hd_grid.Rows[row].Cells[3].Value = txt_hd_dg.Text;
-                                hd_grid.Rows[row].Cells[4].Value = Double.Parse(txt_hd_sl.Text) * Double.Parse(txt_hd_dg.Text);
+                    if (txt_hd_dg.Text == "")
+                    {
+                        hd_grid.Rows[row].Cells[3].Value = node.SelectSingleNode("DonGia").InnerText;
+                    }
+                    else
+                    {
+                        hd_grid.Rows[row].Cells[3].Value = txt_hd_dg.Text;
+                    }
+                                
+                                hd_grid.Rows[row].Cells[4].Value = Double.Parse(txt_hd_sl.Text) * Double.Parse(node.SelectSingleNode("DonGia").InnerText);
 
                                 Double tong = 0;
                                 for (int i = 0; i <= row; i++)
@@ -1250,7 +1259,7 @@ namespace Merge
                     if (sp.SelectSingleNode("@MaHang").Value == item.Key)
                     {
                         row["Tên SP"] = sp.SelectSingleNode("TenHang").InnerText;
-                        row["Giá"] = sp.SelectSingleNode("DonGia");
+                        row["Giá"] = sp.SelectSingleNode("DonGia").InnerText;
                     }
                 }
                 tb.Rows.Add(row);

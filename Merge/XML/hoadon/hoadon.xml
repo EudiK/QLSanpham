@@ -61,12 +61,7 @@
     <ngaytao>10/3/2024 11:42:22 PM</ngaytao>
     <tongtien>1</tongtien>
   </hoadon>
-  <hoadon mahd="hd4">
-    <khachhang makh="none" />
-    <ngaytao>10/3/2024 11:52:46 PM</ngaytao>
-    <tongtien>
-    </tongtien>
-  </hoadon>
+                
   <hoadon mahd="hd5">
     <khachhang makh="none" />
     <sanpham masp="SP01">
