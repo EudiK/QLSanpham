@@ -11,3 +11,16 @@ C:\Users\Admin\source\repos\Merge\Merge\obj\Debug\Merge.pdb
 C:\Users\Admin\source\repos\merge\Merge\obj\Debug\Merge.Form2.resources
 C:\Users\Admin\source\repos\merge\Merge\obj\Debug\Merge.Form3.resources
 C:\Users\Admin\source\repos\merge\Merge\obj\Debug\Merge.Form4.resources
+C:\Users\kindl\source\repos\QLSanpham\Merge\bin\Debug\Merge.exe.config
+C:\Users\kindl\source\repos\QLSanpham\Merge\bin\Debug\Merge.exe
+C:\Users\kindl\source\repos\QLSanpham\Merge\bin\Debug\Merge.pdb
+C:\Users\kindl\source\repos\QLSanpham\Merge\obj\Debug\Merge.csproj.AssemblyReference.cache
+C:\Users\kindl\source\repos\QLSanpham\Merge\obj\Debug\Merge.Form1.resources
+C:\Users\kindl\source\repos\QLSanpham\Merge\obj\Debug\Merge.Form2.resources
+C:\Users\kindl\source\repos\QLSanpham\Merge\obj\Debug\Merge.Form3.resources
+C:\Users\kindl\source\repos\QLSanpham\Merge\obj\Debug\Merge.Form4.resources
+C:\Users\kindl\source\repos\QLSanpham\Merge\obj\Debug\Merge.Properties.Resources.resources
+C:\Users\kindl\source\repos\QLSanpham\Merge\obj\Debug\Merge.csproj.GenerateResource.cache
+C:\Users\kindl\source\repos\QLSanpham\Merge\obj\Debug\Merge.csproj.CoreCompileInputs.cache
+C:\Users\kindl\source\repos\QLSanpham\Merge\obj\Debug\Merge.exe
+C:\Users\kindl\source\repos\QLSanpham\Merge\obj\Debug\Merge.pdb

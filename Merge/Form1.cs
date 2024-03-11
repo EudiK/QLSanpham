@@ -21,15 +21,21 @@ namespace Merge
         XmlDocument hd_doc = new XmlDocument();
         XmlElement hd_root;
         //khanh
-        string hd_fileName = @"C:\Users\Admin\source\repos\Merge\Merge\XML\hoadon\hoadon.xml";
+        string hd_fileName = @"C:\Users\kindl\source\repos\QLSanpham\Merge\XML\hoadon\hoadon.xml";
         //thai
-        string QLSPFileName = @"C:\Users\Admin\source\repos\Merge\Merge\XML\sanpham\sanpham.xml";
+        string QLSPFileName = @"C:\Users\kindl\source\repos\QLSanpham\Merge\XML\sanpham\sanpham.xml";
         //huy
-        String fileName = @"C:\Users\Admin\source\repos\Merge\Merge\XML\nhanvien\nhanvien.xml";
+        String fileName = @"C:\Users\kindl\source\repos\QLSanpham\Merge\XML\nhanvien\nhanvien.xml";
         //tuananh
-        String khfileName = @"C:\Users\Admin\source\repos\Merge\Merge\XML\khachhang\khachhang.xml";
+        String khfileName = @"C:\Users\kindl\source\repos\QLSanpham\Merge\XML\nhanvien\khachhang.xml";
         //quang
-        string qfileName = @"C:\Users\Admin\source\repos\Merge\Merge\XML\nhaphang\nhaphang.xml";
+        string qfileName = @"C:\Users\kindl\source\repos\QLSanpham\Merge\XML\nhanvien\nhaphang.xml";
+        //manh
+        XmlDocument  kh_doc = new XmlDocument(), sp_doc = new XmlDocument();
+        XmlElement  kh_root, sp_root;
+        string
+            kh_fileName = @"C:\Users\kindl\source\repos\QLSanpham\Merge\XML\nhanvien\khachhang.xml"
+        , sp_fileName = @"C:\Users\kindl\source\repos\QLSanpham\Merge\XML\nhanvien\sanpham.xml";
 
         private void hd_them_Click(object sender, EventArgs e)
         {
@@ -1085,6 +1091,169 @@ namespace Merge
         {
             txt_hd_noti.Text = "";
             txt_hd_noti.ForeColor = Color.Black;
+        }
+
+        private void groupBox1_Enter(object sender, EventArgs e)
+        {
+
+        }
+
+
+
+
+        //manh======================================================================
+        private void btnTK_DoanhThu_Click(object sender, EventArgs e)
+        {
+            lbTK_content.Text = "Doanh thu theo ngày";
+            List<(DateTime, int)> DoanhThu = new List<(DateTime, int)>();
+
+            hd_doc.Load(hd_fileName);
+            hd_root = hd_doc.DocumentElement;
+            XmlNodeList DSHoaDon = hd_root.SelectNodes("hoadon");
+
+            int n = DSHoaDon.Count;
+            int j = 0;
+            DoanhThu.Add((DateTime.Parse(DSHoaDon[0].SelectSingleNode("ngaytao").InnerText).Date, 0));
+
+            for (int i = 0; i < n; i++)
+            {
+                DateTime currentDate = DateTime.Parse(DSHoaDon[i].SelectSingleNode("ngaytao").InnerText);
+                int tongtien = int.Parse(DSHoaDon[i].SelectSingleNode("tongtien").InnerText);
+                if (DoanhThu[j].Item1 != currentDate.Date)
+                {
+                    j++;
+                    DoanhThu.Add((currentDate.Date, 0));
+                }
+                DoanhThu[j] = (currentDate.Date, tongtien + DoanhThu[j].Item2);
+            }
+
+            DataTable tb = new DataTable();
+            tb.Columns.Add("Ngày");
+            tb.Columns.Add("Doanh thu");
+
+            for (int i = 0; i <= j; i++)
+            {
+                DataRow row = tb.NewRow();
+                row["Ngày"] = DoanhThu[i].Item1;
+                row["Doanh thu"] = DoanhThu[i].Item2;
+                tb.Rows.Add(row);
+            }
+            dgvTK.DataSource = tb;
+        }
+        private void btnTK_KhachMuaNhieu_Click(object sender, EventArgs e)
+        {
+            lbTK_content.Text = "Khách hàng mua nhiều trong tháng " + DateTime.Now.Month;
+            Dictionary<String, int> KhachPaid = new Dictionary<string, int>();
+
+            kh_doc.Load(kh_fileName);
+            kh_root = kh_doc.DocumentElement;
+            XmlNodeList DSKH = kh_root.SelectNodes("KhachHang");
+
+            hd_doc.Load(hd_fileName);
+            hd_root = hd_doc.DocumentElement;
+            XmlNodeList DSHoaDon = hd_root.SelectNodes("hoadon");
+
+            int n = DSHoaDon.Count;
+
+            for (int i = 0; i < n; i++)
+            {
+                if (DateTime.Parse(DSHoaDon[i].SelectSingleNode("ngaytao").InnerText).Month == DateTime.Now.Month)
+                {
+                    String maK = DSHoaDon[i].SelectSingleNode("khachhang").SelectSingleNode("@makh").Value;
+                    int tongtien = int.Parse(DSHoaDon[i].SelectSingleNode("tongtien").InnerText);
+                    if (KhachPaid.ContainsKey(maK))
+                    {
+                        KhachPaid[maK] += tongtien;
+                    }
+                    else
+                    {
+                        KhachPaid.Add(maK, tongtien);
+                    }
+                }
+
+            }
+
+            DataTable tb = new DataTable();
+            tb.Columns.Add("Mã khách");
+            tb.Columns.Add("Tên khách");
+            tb.Columns.Add("Địa chỉ");
+            tb.Columns.Add("SDT");
+            tb.Columns.Add("Tổng tiền");
+            foreach (var item in KhachPaid.OrderByDescending(kv => kv.Value).ToDictionary(kv => kv.Key, kv => kv.Value))
+            {
+                DataRow row = tb.NewRow();
+                row["Mã khách"] = item.Key;
+                row["Tổng tiền"] = item.Value;
+                foreach (XmlNode KH in DSKH)
+                {
+                    if (KH.SelectSingleNode("@MaK").Value.ToLower() == item.Key.ToLower())
+                    {
+                        row["Tên khách"] = KH.SelectSingleNode("tenKhach").InnerText;
+                        row["Địa chỉ"] = KH.SelectSingleNode("diaChi").InnerText;
+                        row["SDT"] = KH.SelectSingleNode("SDT").InnerText;
+                    }
+                }
+                tb.Rows.Add(row);
+            }
+
+            dgvTK.DataSource = tb;
+        }
+
+        private void btnTK_HangBanCHay_Click(object sender, EventArgs e)
+        {
+            lbTK_content.Text = "Hàng bán chạy";
+            Dictionary<String, int> SLHangBan = new Dictionary<string, int>();
+
+            sp_doc.Load(sp_fileName);
+            sp_root = sp_doc.DocumentElement;
+            XmlNodeList DSSP = sp_root.SelectNodes("SanPham");
+
+            hd_doc.Load(hd_fileName);
+            hd_root = hd_doc.DocumentElement;
+            XmlNodeList DSHoaDon = hd_root.SelectNodes("hoadon");
+
+            foreach (XmlNode HoaDon in DSHoaDon)
+            {
+                if (DateTime.Parse(HoaDon.SelectSingleNode("ngaytao").InnerText).Month == DateTime.Now.Month)
+                {
+                    XmlNodeList SPs = HoaDon.SelectNodes("sanpham");
+                    foreach (XmlNode SP in SPs)
+                    {
+                        String maSP = SP.SelectSingleNode("@masp").Value;
+                        int SLsp = int.Parse(SP.SelectSingleNode("soluong").InnerText);
+                        if (SLHangBan.ContainsKey(maSP))
+                        {
+                            SLHangBan[maSP] += SLsp;
+                        }
+                        else SLHangBan.Add(maSP, SLsp);
+                    }
+                }
+            }
+
+
+            DataTable tb = new DataTable();
+            tb.Columns.Add("Mã SP");
+            tb.Columns.Add("Tên SP");
+            tb.Columns.Add("Giá");
+            tb.Columns.Add("SL đã bán");
+
+            foreach (var item in SLHangBan.OrderByDescending(kv => kv.Value).ToDictionary(kv => kv.Key, kv => kv.Value))
+            {
+                DataRow row = tb.NewRow();
+                row["Mã SP"] = item.Key;
+                row["SL đã bán"] = item.Value;
+                foreach (XmlNode sp in DSSP)
+                {
+                    if (sp.SelectSingleNode("@MaHang").Value == item.Key)
+                    {
+                        row["Tên SP"] = sp.SelectSingleNode("TenHang").InnerText;
+                        row["Giá"] = sp.SelectSingleNode("DonGia");
+                    }
+                }
+                tb.Rows.Add(row);
+            }
+            dgvTK.DataSource = tb;
+
         }
     }
 }
